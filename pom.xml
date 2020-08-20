@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.ttmo</groupId>
+  <artifactId>ms-parent</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  <modules>
+    <module>ms-api-parent</module>
+  </modules>
+  <packaging>pom</packaging>
+
+  <distributionManagement>
+    <repository>
+      <id>github</id>
+      <url>https://maven.pkg.github.com/ttmo-ms/ttmo-ms</url>
+    </repository>
+    <snapshotRepository>
+      <id>github</id>
+      <url>https://maven.pkg.github.com/ttmo-ms/ttmo-ms</url>
+    </snapshotRepository>
+  </distributionManagement>
+
+  <properties>
+    <java.version>11</java.version>
+    <maven.compiler.source>${java.version}</maven.compiler.source>
+    <maven.compiler.target>${java.version}</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+    <!--dependency version-->
+    <spring-cloud-alibaba-dependencies.version>2.2.1.RELEASE</spring-cloud-alibaba-dependencies.version>
+    <spring-boot.version>2.3.2.RELEASE</spring-boot.version>
+    <dubbo-spring-boot-starter.version>2.7.7</dubbo-spring-boot-starter.version>
+    <mybatis-spring-boot-starter.version>2.1.3</mybatis-spring-boot-starter.version>
+    <druid-spring-boot-starter.version>1.1.17</druid-spring-boot-starter.version>
+    <lombok.version>1.18.12</lombok.version>
+
+    <!--api version-->
+    <user-service-api.version>1.0.0-SNAPSHOT</user-service-api.version>
+
+    <!--common tools-->
+    <ms-common-kit-dynamic-query.version>1.0.2</ms-common-kit-dynamic-query.version>
+  </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <!--api-->
+      <dependency>
+        <groupId>com.ttmo</groupId>
+        <artifactId>ms-common-kit-spring-boot-starter-dynamic-query</artifactId>
+        <version>${ms-common-kit-dynamic-query.version}</version>
+      </dependency>
+
+      <!--      <dependency>-->
+      <!--        <groupId>com.ttmo</groupId>-->
+      <!--        <artifactId>ms-user-service-api</artifactId>-->
+      <!--        <version>1.0.0-SNAPSHOT</version>-->
+      <!--      </dependency>-->
+
+      <!--spring cloud-->
+      <dependency>
+        <groupId>com.alibaba.cloud</groupId>
+        <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+        <version>${spring-cloud-alibaba-dependencies.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-dependencies</artifactId>
+        <version>${spring-boot.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-autoconfigure</artifactId>
+        <version>${spring-boot.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.apache.dubbo</groupId>
+        <artifactId>dubbo-spring-boot-starter</artifactId>
+        <version>${dubbo-spring-boot-starter.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.mybatis.spring.boot</groupId>
+        <artifactId>mybatis-spring-boot-starter</artifactId>
+        <version>${mybatis-spring-boot-starter.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.alibaba</groupId>
+        <artifactId>druid-spring-boot-starter</artifactId>
+        <version>${druid-spring-boot-starter.version}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <repositories>
+    <repository>
+      <id>github-ttmo-ms</id>
+      <url>https://maven.pkg.github.com/ttmo-ms/ttmo-ms</url>
+    </repository>
+  </repositories>
+
+</project>
